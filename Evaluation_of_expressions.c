@@ -1,7 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-// Function to evaluate expressions
 double evaluateExpression(char expression[]) {
     char operators[100];
     double operands[100];
@@ -12,10 +11,8 @@ double evaluateExpression(char expression[]) {
         if (expression[i] == '+' || expression[i] == '-' || expression[i] == '*' || expression[i] == '/') {
             operators[opCount++] = expression[i];
         } else if (expression[i] >= '0' && expression[i] <= '9') {
-            // Convert character to integer
             double num = expression[i] - '0';
 
-            // Continue reading digits to get the complete number
             while (expression[i + 1] >= '0' && expression[i + 1] <= '9') {
                 num = num * 10 + (expression[i + 1] - '0');
                 i++;
@@ -61,7 +58,6 @@ int main() {
     printf("Enter an expression: ");
     fgets(expression, sizeof(expression), stdin);
 
-    // Remove newline character from the input
     for (int i = 0; expression[i] != '\0'; i++) {
         if (expression[i] == '\n') {
             expression[i] = '\0';
